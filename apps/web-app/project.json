@@ -66,6 +66,14 @@
       "options": {
         "lintFilePatterns": ["apps/web-app/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/web-app"],
+      "options": {
+        "jestConfig": "apps/web-app/jest.config.ts",
+        "passWithNoTests": true
+      }
     }
   },
   "tags": []

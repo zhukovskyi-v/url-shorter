@@ -4,6 +4,7 @@
   "projects": {
     "express-app": "apps/express-app",
     "nest-app": "apps/nest-app",
-    "web-app": "apps/web-app"
+    "web-app": "apps/web-app",
+    "web-app-e2e": "apps/web-app-e2e"
   }
 }
