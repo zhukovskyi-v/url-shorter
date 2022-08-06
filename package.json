@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node dist/apps/express-app/main.js",
     "test": "nx test",
-    "build": "yarn nx run-many --target=build --projects=web-app,express-app --parallel=true",
+    "build-express": "yarn nx run-many --target=build --projects=web-app --parallel=true",
+    "build-web": "yarn nx run-many --target=build --projects=express-app --parallel=true",
     "dev": "yarn nx run-many --target=serve --projects=web-app,express-app --parallel=true"
   },
   "engines": {
