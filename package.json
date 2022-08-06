@@ -8,6 +8,9 @@
     "build": "yarn nx run-many --target=build --projects=web-app,express-app --parallel=true",
     "dev": "yarn nx run-many --target=serve --projects=web-app,express-app --parallel=true"
   },
+  "engines": {
+    "node": "14.20.0"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^8.0.0",
