@@ -1,5 +1,5 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
 
 export type UrlDocument = Url & Document;
 
@@ -19,6 +19,10 @@ export class Url {
 
   @Prop({ default: Date.now() })
   date: Date;
+
+  @Prop({ default: null })
+  ipCallsInfo: Array<any>;
+
 }
 
 export const UrlSchema = SchemaFactory.createForClass(Url);
