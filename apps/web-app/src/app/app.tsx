@@ -1,14 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
+import React, { useState } from 'react';
+import BackgroundAnimate from './BackgroundAnimate';
+import InputShortener from './InputShortener';
+import LinkResult from './LinkResult';
 
 export function App() {
+  const [inputValue, setInputValue] = useState('');
+
   return (
-    <>
-      <NxWelcome title="web-app" />
-      <div />
-    </>
+    <div className="container">
+      <InputShortener setInputValue={setInputValue} />
+      <BackgroundAnimate />
+      <LinkResult inputValue={inputValue} />
+    </div>
   );
 }
-
-export default App;
