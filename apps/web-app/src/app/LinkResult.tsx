@@ -12,9 +12,12 @@ const LinkResult: FC<any> = ({ inputValue }) => {
     try {
       setError(false);
       setLoading(true);
-      const { data } = await axios.post(`http://localhost:6789/api/short`, {
-        originalUrl: inputValue,
-      });
+      const { data } = await axios.post(
+        `${process.env.NX_URL_DOMAIN}/api/short`,
+        {
+          originalUrl: inputValue,
+        }
+      );
       setShortenLink(data.shortUrl);
     } catch (err) {
       console.log(err);
@@ -49,7 +52,7 @@ const LinkResult: FC<any> = ({ inputValue }) => {
   if (shortenLink) {
     return (
       <div className="result">
-        <a href={shortenLink} target="black" className='link'>
+        <a href={shortenLink} target="black" className="link">
           {shortenLink}
         </a>
         <CopyToClipboard text={shortenLink} onCopy={() => setCopied(true)}>

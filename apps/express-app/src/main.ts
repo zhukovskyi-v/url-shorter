@@ -15,7 +15,13 @@ server.on('error', console.error);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      callback(null, true);
+    },
+  })
+);
 
 app.use('/', urlRouter);
 app.use(morgan('tiny'));
