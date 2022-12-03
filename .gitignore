@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 /apps/express-app/.env
 /apps/nest-app/.env
+/apps/web-app/.env
