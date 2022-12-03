@@ -10,12 +10,15 @@ const LinkResult: FC<any> = ({ inputValue }) => {
 
   const fetchData = async () => {
     try {
+      setError(false);
       setLoading(true);
-      const res = await axios.post(`http://localhost:3333/api`, {
+      const { data } = await axios.post(`http://localhost:6789/api/short`, {
         originalUrl: inputValue,
       });
-      setShortenLink(res.data.result.full_short_link);
+      setShortenLink(data.shortUrl);
     } catch (err) {
+      console.log(err);
+
       setError(!!err);
     } finally {
       setLoading(false);
@@ -31,7 +34,7 @@ const LinkResult: FC<any> = ({ inputValue }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCopied(false);
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [copied]);
@@ -46,7 +49,9 @@ const LinkResult: FC<any> = ({ inputValue }) => {
   if (shortenLink) {
     return (
       <div className="result">
-        <p>{shortenLink}</p>
+        <a href={shortenLink} target="black" className='link'>
+          {shortenLink}
+        </a>
         <CopyToClipboard text={shortenLink} onCopy={() => setCopied(true)}>
           <button className={copied ? 'copied' : ''}>Copy to Clipboard</button>
         </CopyToClipboard>

@@ -86,6 +86,11 @@ code {
   background: var(--primary-color);
   border: none;
 }
+.result .link {
+  color: #fff;
+  text-decoration: none;
+
+}
 .result button.copied {
   background: #fff;
   color: var(--primary-color);

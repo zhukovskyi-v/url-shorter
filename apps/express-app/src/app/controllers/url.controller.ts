@@ -1,6 +1,6 @@
-import Url from "../models/urls.schema";
-import { validateUrl } from "../utils";
-import ShortUniqueId from "short-unique-id";
+import Url from '../models/urls.schema';
+import { validateUrl } from '../utils';
+import ShortUniqueId from 'short-unique-id';
 
 export const getUrlById = async (req, res) => {
   try {
@@ -9,9 +9,9 @@ export const getUrlById = async (req, res) => {
       url.clicks++;
       url.save();
       return res.redirect(url.originalUrl);
-    } else res.status(404).json("Not found");
+    } else res.status(404).json('Not found');
   } catch (err) {
-    res.status(500).json("Server Error");
+    res.status(500).json('Server Error');
   }
 };
 
@@ -33,16 +33,16 @@ export const saveUrl = async (req, res) => {
           originalUrl,
           shortUrl,
           urlId,
-          date: new Date()
+          date: new Date(),
         });
 
         await url.save();
         res.json(url);
       }
     } catch (err) {
-      res.status(500).json("Server Error");
+      res.status(500).json('Server Error');
     }
   } else {
-    res.status(400).json("Invalid Original Url");
+    res.status(400).json('Invalid Original Url');
   }
 };
