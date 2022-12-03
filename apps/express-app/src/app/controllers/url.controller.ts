@@ -21,7 +21,7 @@ export const saveUrl = async (req, res) => {
 
   if (validateUrl(originalUrl)) {
     try {
-      const uuid = new ShortUniqueId({ length: 10 });
+      const uuid = new ShortUniqueId({ length: 8 });
       const urlId = uuid();
       let url = await Url.findOne({ originalUrl });
       if (url) {
