@@ -10,7 +10,7 @@
     "dev": "npm nx run-many --target=serve --projects=web-app,express-app --parallel=true"
   },
   "engines": {
-    "node": "14.21.1"
+    "node": "14"
   },
   "private": true,
   "dependencies": {
