@@ -3,6 +3,7 @@ import connectDB from './app/database';
 import urlRouter from './app/routes/urls';
 import cors = require('cors');
 import * as morgan from 'morgan';
+import healthRouter from './app/routes/health';
 
 const app = express();
 
@@ -24,4 +25,5 @@ app.use(
 );
 
 app.use('/', urlRouter);
+app.use('/api', healthRouter);
 app.use(morgan('tiny'));
